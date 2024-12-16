@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  chatbotproject:
+    image: chatbotproject
+    build:
+      context: .
+      dockerfile: ./Dockerfile

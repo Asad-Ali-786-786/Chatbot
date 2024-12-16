@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f4f4f9; color: #333; text-align: center; margin: 0; padding: 0;">
+
+    <h1 style="background-color: #4CAF50; color: white; padding: 20px; margin: 0;">Welcome to the Chatbot</h1>
+
+    <form action="/chat/" method="post" style="margin-top: 50px;">
+        {% csrf_token %}
+        <label for="user_input" style="font-size: 18px; margin-right: 10px;">Enter your message:</label>
+        <input type="text" name="user_input" id="user_input" required style="padding: 10px; font-size: 16px; width: 300px; border-radius: 5px; border: 1px solid #ccc;">
+        <button type="submit" style="padding: 10px 20px; font-size: 16px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">
+            Chat
+        </button>
+    </form>
+
+    <div style="margin-top: 30px; padding: 20px;">
+        {% if response %}
+            <p style="font-size: 18px; border: 1px solid #ddd; padding: 15px; display: inline-block; background-color: #fff; border-radius: 5px; box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);">
+                <strong style="color: #4CAF50;">Bot:</strong> {{ response }}
+            </p>
+        {% endif %}
+    </div>
+
+</body>
+</html>
+
