@@ -12,14 +12,11 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
-
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
 BASE_DIR = Path(__file__).resolve().parent.parent  #-----> Without static option
-
-
 # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -30,17 +27,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent  #-----> Without static option
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-# SECRET_KEY = 'django-insecure-14-gmxg$!9tne$7e#6c)bq3!wes8!*jr6gv6e6j!(fyi$if^9)'
+SECRET_KEY = 'django-insecure-14-gmxg$!9tne$7e#6c)bq3!wes8!*jr6gv6e6j!(fyi$if^9)'
 
 
-load_dotenv()
-SECRET_KEY = os.getenv('SECRET_KEY', 'fallback_secret_key')
-DEBUG = os.getenv('DEBUG', 'False') == 'True'
+# load_dotenv()
+# SECRET_KEY = os.getenv('SECRET_KEY', 'fallback_secret_key')
+# DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
+DEBUG = True
 
 
 
@@ -63,6 +60,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',   # ---------> For Deployment 
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -161,9 +159,11 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Directory where static files will be collected
+# STATIC_ROOT = 'staticfiles'  # Directory where static files will be collected
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  
 
 
+STATICSTORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 # Default primary key field type
