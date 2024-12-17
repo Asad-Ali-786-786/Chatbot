@@ -19,6 +19,7 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent  #-----> Without static option
 # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+CSRF_TRUSTED_ORIGINS= ["https://web-production-4bebf.up.railway.app"]
 
 
 
