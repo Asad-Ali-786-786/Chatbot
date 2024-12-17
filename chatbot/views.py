@@ -12,3 +12,4 @@ def chat(request):
         user_input = request.POST.get('user_input')
         response = process_message(user_input)
     return render(request, 'home.html', {'response': response})
+

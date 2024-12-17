@@ -161,7 +161,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 # STATIC_ROOT = 'staticfiles'  # Directory where static files will be collected
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'chatbot/static'),  # Custom static files at the project level
+]
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  
+
 
 
 STATICSTORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

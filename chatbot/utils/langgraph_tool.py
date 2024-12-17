@@ -39,3 +39,15 @@ def process_message(user_input):
         message = event["messages"][-1]  
         response = message.content  
     return response
+
+# def process_message(user_input):
+#     """Process user input and generate a chatbot response."""
+#     if not user_input or not isinstance(user_input, str):
+#         raise ValueError("Input must be a non-empty string.")
+
+#     events = graph.stream({"messages": [("user", user_input)]}, stream_mode="values")
+#     response = None
+#     for event in events:
+#         message = event["messages"][-1]
+#         response = message.content
+#     return response
