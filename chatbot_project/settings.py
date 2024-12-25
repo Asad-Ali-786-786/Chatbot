@@ -38,8 +38,8 @@ SECRET_KEY = 'django-insecure-14-gmxg$!9tne$7e#6c)bq3!wes8!*jr6gv6e6j!(fyi$if^9)
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG = False
+DEBUG = True
+# DEBUG = False
 
 
 
@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'chatbot',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -89,7 +90,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'chatbot_project.wsgi.application'
+WSGI_APPLICATION = 'chatbot_project.wsgi.application'  #-----> Correct
+
 
 
 # Database

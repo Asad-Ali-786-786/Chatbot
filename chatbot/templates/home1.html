@@ -1,0 +1,1506 @@
+<!-- {% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f4f4f9; color: #333; text-align: center; margin: 0; padding: 0;">
+
+    <h1 style="background-color: #4CAF50; color: white; padding: 20px; margin: 0;">Welcome to the Chatbot</h1>
+
+    <form action="/chat/" method="post" style="margin-top: 50px;">
+        {% csrf_token %}
+        <label for="user_input" style="font-size: 18px; margin-right: 10px;">Enter your message:</label>
+        <input type="text" name="user_input" id="user_input" required style="padding: 10px; font-size: 16px; width: 300px; border-radius: 5px; border: 1px solid #ccc;">
+        <button type="submit" style="padding: 10px 20px; font-size: 16px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">
+            Chat
+        </button>
+    </form>
+
+    <div style="margin-top: 30px; padding: 20px;">
+        {% if response %}
+            <p style="font-size: 18px; border: 1px solid #ddd; padding: 15px; display: inline-block; background-color: #fff; border-radius: 5px; box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);">
+                <strong style="color: #4CAF50;">Bot:</strong> {{ response }}
+            </p>
+        {% endif %}
+    </div>
+
+</body>
+</html> -->
+
+
+<!-- ------------------------------  Correct -->
+
+<!-- {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chatbot</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>Welcome to the Chatbot</header>
+
+    <div class="chat-container">
+        <div id="chat-box" class="chat-box">
+            {% if response %}
+                <p id="bot-response">{{ response }}</p>
+            {% else %}
+                <p>Ask something to start the conversation!</p>
+            {% endif %}
+        </div>
+
+        <form action="{% url 'chat' %}" method="POST" class="chat-form">
+            {% csrf_token %}
+            <input type="text" name="user_input" placeholder="Type your message..." required>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html> -->
+
+<!-- --------------------------------------------- Correct -->
+
+
+
+<!-- {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chatbot</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Chat Bot</h1>
+    </header>
+
+    <div class="main-container">
+        
+        <div class="sidebar">
+            <div class="sidebar-header">Chat History</div>
+            <ul id="chat-history">
+                <li>Welcome to the Chatbot!</li>
+            </ul>
+            <button id="new-chat-btn" class="button">New Chat</button>
+        </div>
+
+        
+        <div class="chat-area">
+            <div id="chat-box" class="chat-box">
+                {% if response %}
+                    <p id="bot-response">{{ response }}</p>
+                {% else %}
+                    <p>Ask something to start the conversation!</p>
+                {% endif %}
+            </div>
+
+            <form action="{% url 'chat' %}" method="POST" class="chat-form">
+                {% csrf_token %}
+                <input type="text" name="user_input" placeholder="Type your message..." required>
+                <button type="submit" class="button">Send</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html> -->
+
+
+
+
+<!-- *******************************************************************************  correct  -->
+
+<!-- {% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>Welcome to the Chatbot</header>
+
+    <div class="chat-container">
+        <div id="chat-box" class="chat-box">
+            {% if response %}
+                <p id="bot-response">{{ response }}</p>
+            {% else %}
+                <p>Ask something to start the conversation!</p>
+            {% endif %}
+        </div>
+
+        <form action="{% url 'chat' %}" method="POST" class="chat-form">
+            {% csrf_token %}
+            <input type="text" name="user_input" placeholder="Type your message..." required>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html> -->
+
+<!-- *******************************************************************************  correct  -->
+
+<!-- ))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) -->
+
+<!-- ))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        .chat-box {
+            padding: 20px;
+            height: 400px;
+            overflow-y: auto;
+            border-bottom: 1px solid #ddd;
+        }
+        .message {
+            margin: 10px 0;
+        }
+        .user-message {
+            text-align: right;
+            color: #007bff;
+        }
+        .bot-message {
+            text-align: left;
+            color: #555;
+        }
+        .input-box {
+            display: flex;
+            padding: 15px;
+        }
+        .input-box input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            outline: none;
+        }
+        .input-box button {
+            margin-left: 10px;
+            padding: 10px 20px;
+            border: none;
+            background: #007bff;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .input-box button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="chat-box" id="chat-box">
+            
+            
+        </div>
+
+        
+        
+        <form class="input-box" onsubmit="return sendMessage();">
+            {% csrf_token %}
+            <input type="text" id="user_input" name="user_input" placeholder="Type your message here..." autocomplete="off">
+            <button type="submit">Send</button>
+        </form>
+
+    </div>
+
+    <script>
+    function sendMessage() {
+        const userInput = document.getElementById('user_input').value.trim();
+        if (!userInput) {
+            alert("Please type a message!");
+            return false;
+        }
+
+        const chatBox = document.getElementById('chat-box');
+        chatBox.innerHTML += `<div class="message user-message">${userInput}</div>`;
+        
+        fetch("{% url 'chat' %}", {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ user_input: userInput })
+        })
+        .then(response => response.json())
+        .then(data => {
+            const botResponse = data.response || "Error processing response!";
+            chatBox.innerHTML += `<div class="message bot-message">${botResponse}</div>`;
+            document.getElementById('user_input').value = '';
+            chatBox.scrollTop = chatBox.scrollHeight;
+        })
+        .catch(error => console.error('Error:', error));
+
+        return false;
+    }
+</script>
+
+</body>
+</html> -->
+
+
+<!-- ))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) -->
+
+<!-- ))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <style>
+        body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #e9ecef;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 700px;
+    margin: 50px auto;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.chat-box {
+    padding: 20px;
+    height: 500px;
+    overflow-y: auto;
+    background: #f8f9fa;
+    border-bottom: 2px solid #ddd;
+}
+
+.message {
+    margin: 10px 0;
+    padding: 10px 15px;
+    border-radius: 20px;
+    max-width: 70%;
+}
+
+.user-message {
+    background: #007bff;
+    color: #fff;
+    margin-left: auto;
+    text-align: right;
+}
+
+.bot-message {
+    background: #e9ecef;
+    color: #333;
+    text-align: left;
+}
+
+.input-box {
+    display: flex;
+    padding: 15px;
+    background: #ffffff;
+    border-top: 2px solid #ddd;
+}
+
+.input-box input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    outline: none;
+}
+
+.input-box button {
+    margin-left: 10px;
+    padding: 12px 25px;
+    border: none;
+    background: #007bff;
+    color: #fff;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.input-box button:hover {
+    background: #0056b3;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="chat-box" id="chat-box">
+            {% if response %}
+                <p id="bot-response">{{ response }}</p>
+            {% else %}
+                <p>Ask something to start the conversation!</p>
+            {% endif %}
+        </div>
+
+        <div class="input-box">
+            
+            <form action="{% url 'chat' %}" method="POST" class="chat-form">
+                {% csrf_token %}
+                <input type="text" name="user_input" placeholder="Type your message..." required>
+                <button type="submit">Send</button>
+            </form>
+    </div>
+    
+    </div>
+
+    
+    
+    <script>
+    function simulateTyping(botMessage) {
+    const chatBox = document.getElementById("input-box");
+    let i = 0;
+    chatBox.innerHTML = "";
+    const typingInterval = setInterval(() => {
+        chatBox.innerHTML += botMessage.charAt(i);
+        i++;
+        if (i > botMessage.length) clearInterval(typingInterval);
+    }, 30);
+}
+
+window.onload = function () {
+    const botMessage = document.getElementById("bot-response").textContent.trim();
+    if (botMessage) simulateTyping(botMessage);
+}; -->
+
+
+
+
+
+
+<!-- //     function getCSRFToken() {
+//     return document.querySelector('[name=csrfmiddlewaretoken]').value;
+// }
+
+//     document.getElementById('user_input').addEventListener('keypress', function(event) {
+//     if (event.key === 'Enter') {
+//         event.preventDefault();
+//         sendMessage();
+//     }
+// });
+
+// function sendMessage() {
+//     const userInput = document.getElementById('user_input').value.trim();
+//     if (!userInput) {
+//         alert("Please type a message!");
+//         return;
+//     }
+
+//     const chatBox = document.getElementById('chat-box');
+//     chatBox.innerHTML += `<div class="message user-message">${userInput}</div>`;
+
+//     document.getElementById('user_input').value = '';
+//     chatBox.scrollTop = chatBox.scrollHeight;
+
+//     fetch('{% url "chat" %}', {
+//         method: 'POST',
+//         headers: {
+//             'X-CSRFToken': getCSRFToken(),
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify({ user_input: userInput })
+//     })
+//     .then(response => response.json())
+//     .then(data => {
+//         const botResponse = data.response || "Error processing response!";
+//         chatBox.innerHTML += `<div class="message bot-message">${botResponse}</div>`;
+//         document.getElementById('user_input').value = '';
+//         chatBox.scrollTop = chatBox.scrollHeight;
+//     })
+//     .catch(error => console.error('Error:', error));
+
+//     return false;
+// } -->
+
+<!-- </script>
+
+</body>
+</html> -->
+
+
+
+
+<!-- ye sahi hay sab se -->
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #e9ecef;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 50px auto;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .chat-box {
+            padding: 20px;
+            height: 500px;
+            overflow-y: auto;
+            background: #f8f9fa;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .message {
+            margin: 10px 0;
+            padding: 10px 15px;
+            border-radius: 20px;
+            max-width: 70%;
+        }
+
+        .user-message {
+            background: #007bff;
+            color: #fff;
+            margin-left: auto;
+            text-align: right;
+        }
+
+        .bot-message {
+            background: #e9ecef;
+            color: #333;
+            text-align: left;
+        }
+
+        .input-box {
+            display: flex;
+            padding: 15px;
+            background: #ffffff;
+            border-top: 2px solid #ddd;
+        }
+
+        .input-box input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            outline: none;
+        }
+
+        .input-box button {
+            margin-left: 10px;
+            padding: 12px 25px;
+            border: none;
+            background: #007bff;
+            color: #fff;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+
+        .input-box button:hover {
+            background: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="chat-box" id="chat-box">
+            <p>Ask something to start the conversation!</p>
+        </div>
+
+        <div class="input-box">
+            <form action="{% url 'chat' %}" method="POST" class="chat-form" id="chat-form">
+                {% csrf_token %}
+                <input type="text" name="user_input" id="user-input" placeholder="Type your message..." required>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Function to add messages to the chat-box
+        function addMessage(content, sender) {
+            const chatBox = document.getElementById("chat-box");
+            const message = document.createElement("div");
+            message.classList.add("message");
+            message.classList.add(sender === 'user' ? 'user-message' : 'bot-message');
+            message.textContent = content;
+            chatBox.appendChild(message);
+
+            // Scroll chat-box to bottom
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        // Function to handle the chat form submission
+        document.getElementById("chat-form").addEventListener("submit", function(event) {
+            event.preventDefault();  // Prevent form from refreshing the page
+            const userInput = document.getElementById("user-input").value.trim();
+            if (userInput) {
+                // Display user message
+                addMessage(userInput, 'user');
+
+                // Here, you would typically call your backend or bot function for a response
+                const botResponse = getBotResponse(userInput);  // Get response from bot (for demo purposes)
+                setTimeout(() => {
+                    addMessage(botResponse, 'bot');
+                }, 500);  // Simulate a delay for bot response
+            }
+            document.getElementById("user-input").value = "";  // Clear input box
+        });
+
+        // Simulated bot response function (replace this with your actual bot logic)
+        function getBotResponse(userInput) {
+            // Example bot response based on input
+            if (userInput.toLowerCase() === "hi") {
+                return userInput;
+            } else if (userInput.toLowerCase() === "how are you") {
+                return "I'm doing well, thank you!";
+            }
+            return "I'm sorry, I don't understand that.";
+        }
+    </script>
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+<!-- Recent Correct with proper template # With html working 
+---------------------------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #e9ecef;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 50px auto;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .chat-box {
+            padding: 20px;
+            height: 500px;
+            overflow-y: auto;
+            background: #f8f9fa;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .message {
+            margin: 10px 0;
+            padding: 10px 15px;
+            border-radius: 20px;
+            max-width: 70%;
+        }
+
+        .user-message {
+            background: #007bff;
+            color: #fff;
+            margin-left: auto;
+            text-align: right;
+        }
+
+        .bot-message {
+            background: #e9ecef;
+            color: #333;
+            text-align: left;
+        }
+
+        .input-box {
+            display: flex;
+            padding: 15px;
+            background: #ffffff;
+            border-top: 2px solid #ddd;
+        }
+
+        .input-box input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            outline: none;
+        }
+
+        .input-box button {
+            margin-left: 10px;
+            padding: 12px 25px;
+            border: none;
+            background: #007bff;
+            color: #fff;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+
+        .input-box button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="chat-box" id="chat-box">
+            {% if user_input %}
+                <div class="message user-message">
+                    {{ user_input }}
+                </div>
+            {% endif %}
+            
+            {% if response %}
+                <div class="message bot-message">
+                    {{ response }}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="input-box">
+            <form action="{% url 'chat' %}" method="POST" class="chat-form">
+                {% csrf_token %}
+                <input type="text" name="user_input" placeholder="Type your message..." required>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Scroll the chat box to the bottom after every new message
+        const chatBox = document.getElementById("chat-box");
+        chatBox.scrollTop = chatBox.scrollHeight;
+
+        // Optional: Add smooth typing effect for bot messages
+        function simulateTyping(botMessage) {
+            const chatBox = document.getElementById("chat-box");
+            let i = 0;
+            const typingInterval = setInterval(() => {
+                chatBox.innerHTML += botMessage.charAt(i);
+                i++;
+                if (i > botMessage.length) clearInterval(typingInterval);
+            }, 30);
+        }
+    </script>
+</body>
+</html> -->
+
+
+
+<!-- Recent Correct with proper template # With html working 
+---------------------------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <style>
+
+        
+        * {
+
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+            background-color: #e9ecef;
+            /* margin: 0;
+            padding: 0; */
+        }
+
+        .container {
+            /* max-width: 700px;
+            margin: 50px auto;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden; */
+           
+            
+            width: 100%;
+            height: 100%;
+            background-color: rgb(45, 52, 59);
+            padding: 20px;
+        }
+
+        .chat-box {
+            padding: 20px;
+            height: 500px;
+            overflow-y: auto;
+            background: #f8f9fa;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .message {
+            margin: 10px 0;
+            padding: 10px 15px;
+            border-radius: 20px;
+            max-width: 70%;
+        }
+
+        /* ***** */
+        .user-message {
+            background: #007bff;
+            color: #fff;
+            margin-left: auto;
+            text-align: right;
+        }
+
+        .bot-message {
+            background: #e9ecef;
+            color: #333;
+            text-align: left;
+        }
+
+
+        /* ****** */
+        
+        .input-box {
+            display: flex;
+            padding: 5px;
+            background: #ffffff;
+            border-top: 2px solid #ddd;
+            justify-content: center;  /* Center the input and button */
+            margin: 0 auto;  /* Center the input box horizontally */
+        }
+
+        .input-box input {
+            flex: 1;
+            padding: 15px;
+            border: 3px solid #ddd;
+            border-radius: 30px;
+            outline: none;
+            width: 60%; /* Make input fill available space, but within max-width */
+        }
+
+        .input-box button {
+            margin-left: auto;
+            padding: 12px 25px;
+            border: none;
+            background: #007bff;
+            color: #fff;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+
+        .input-box button:hover {
+            background: #0056b3;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="chat-box" id="chat-box">
+            {% for msg in chat_history %}
+                <div class="message {{ msg.type }}-message">
+                    {{ msg.content }}
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="input-box">
+            <form action="{% url 'chat' %}" method="POST" class="chat-form">
+                {% csrf_token %}
+                <input type="text" name="user_input" placeholder="Type your message..." required>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Scroll the chat box to the bottom after every new message
+        const chatBox = document.getElementById("chat-box");
+        chatBox.scrollTop = chatBox.scrollHeight;
+    </script>
+</body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            background-color: #e9ecef;
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+            background-color: rgb(45, 52, 59);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-box {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background: #f8f9fa;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .chat-form{
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background: #383737;
+            border-top: 2px solid #ddd;
+        }
+
+        .message {
+            margin: 10px 0;
+            padding: 10px 15px;
+            border-radius: 20px;
+            max-width: 60%;
+            word-wrap: break-word;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .user-message {
+            background: #007bff;
+            color: #fff;
+            margin-left: auto;
+            text-align: right;
+        }
+
+        .bot-message {
+            background: #e9ecef;
+            color: #333;
+            text-align: left;
+        }
+
+        .input-box {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background: #ec1818;
+            border-top: 2px solid #ddd;
+        }
+
+        .input-box input {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 30px;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        .input-box input:focus {
+            border-color: #007bff;
+        }
+
+        .input-box button {
+            margin-left: 10px;
+            padding: 12px 25px;
+            border: none;
+            background: #007bff;
+            color: #fff;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .input-box button:hover {
+            background: #0056b3;
+        }
+
+        @media (max-width: 768px) {
+            .message {
+                max-width: 90%;
+                font-size: 0.9rem;
+            }
+
+            .input-box input,
+            .input-box button {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="chat-box" id="chat-box">
+            {% for msg in chat_history %}
+                <div class="message {{ msg.type }}-message">
+                    {{ msg.content }}
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="input-box">
+            <form action="{% url 'chat' %}" method="POST" class="chat-form" style="display: flex; width: 100%;">
+                {% csrf_token %}
+                <input type="text" name="user_input" placeholder="Type your message..." required>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Automatically scroll to the bottom
+        const chatBox = document.getElementById("chat-box");
+        chatBox.scrollTop = chatBox.scrollHeight;
+        
+    </script>
+</body>
+</html> -->
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    
+     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #e0e0e0;
+        }
+
+        .chat-container {
+            width: 100%;
+            height: 100%;
+           
+            background-color: #2a2a2a;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            
+        }
+
+        .chat-header {
+            background-color: #3a3a3a;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .chat-header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .chat-messages {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .message {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .message-content {
+            padding: 10px;
+            border-radius: 5px;
+            max-width: 70%;
+        }
+
+        .user-message {
+            flex-direction: row-reverse;
+        }
+
+        .user-message .message-content {
+            background-color: #4a90e2;
+            margin-right: 10px;
+        }
+
+        .bot-message .message-content {
+            background-color: #3a3a3a;
+            margin-left: 10px;
+        }
+
+        .profile-image {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .chat-input-container {
+            display: flex;
+            padding: 15px;
+            background-color: #2a2a2a;
+        }
+
+
+        .chat-form{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background: #383737;
+           
+        }
+
+        #user-input {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #4a4a4a;
+            border-radius: 5px;
+            font-size: 1rem;
+            background-color: #3a3a3a;
+            color: #e0e0e0;
+            outline: none;
+        }
+
+        #send-button {
+            padding: 10px 20px;
+            background-color: #4a90e2;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            margin-left: 10px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        #send-button:hover {
+            background-color: #3a7bc8;
+        }
+
+        #send-button:disabled {
+            background-color: #2a5a8a;
+            cursor: not-allowed;
+        }
+
+        @media (max-width: 480px) {
+            .chat-container {
+                height: 100vh;
+                border-radius: 0;
+            }
+        }
+
+       
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #2a2a2a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #4a4a4a;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #5a5a5a;
+        }
+     </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h1>Chatbot</h1>
+        </div>
+        <div class="chat-messages" id="chat-messages">
+            {% for msg in chat_history %}
+                <div class="message {{ msg.type }}-message">
+                    {{ msg.content }}
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="chat-input-container">
+            <form action="{% url 'chat' %}" method="POST" class="chat-form">
+                {% csrf_token %}
+                <input type="text" id="user-input" name="user_input" placeholder="Type your message..." required>
+                <button type="submit" id="send-button">Send</button>
+            </form>
+        </div>
+    </div>
+    
+     <script>
+        
+        const chatBox = document.getElementById("chat-messages");
+        chatBox.scrollTop = chatBox.scrollHeight;
+     </script>
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chatbot</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>Welcome to the Chatbot</header>
+
+    <div class="chat-container">
+        <div id="chat-box" class="chat-box">
+            {% if response %}
+                <p id="bot-response">{{ response }}</p>
+            {% else %}
+                <p>Ask something to start the conversation!</p>
+            {% endif %}
+        </div>
+
+       
+        <form action="{% url 'chat' %}" method="POST" class="chat-form">
+            {% csrf_token %}
+            <input type="text" name="user_input" id="user_input" placeholder="Type your message..." required>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    
+    <script src="{% static 'js/script.js' %}">
+        const inputField = document.getElementById('user_input');
+        const form = document.querySelector('form');
+        
+        form.addEventListener('submit', () => {
+            
+            inputField.value = '';
+        });
+    </script>
+</body>
+</html> -->
+
+
+<!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+</head>
+<body>
+    <h1>Chat with our Bot</h1>
+    
+    <form method="POST">
+        {% csrf_token %}
+        <label for="user_input">Your Message:</label>
+        <textarea name="user_input" id="user_input" rows="4" cols="50">{{ user_input }}</textarea><br><br>
+        <input type="submit" value="Send">
+    </form>
+
+    <div>
+        {% if response %}
+            <h2>Bot Response:</h2>
+            <p>{{ response }}</p>
+        {% endif %}
+        
+        {% if memory %}
+            <h3>Memory (Optional):</h3>
+            <p>{{ memory }}</p>
+        {% endif %}
+    </div>
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- // ****************************************************************************************** using template -->
+
+<!-- 
+<div class="chat-box">
+    <div class="chat-box-header">
+        <h3>Message Us</h3>
+        <p><i class="fa fa-times"></i></p>
+    </div>
+    <div class="chat-box-body" id="chatBody">
+        
+    </div>
+    <div class="chat-box-footer">
+        <button id="addExtra"><i class="fa fa-plus"></i></button>
+        <input id="userInput" placeholder="Enter Your Message" type="text" />
+        <i id="sendBtn" class="send far fa-paper-plane"></i>
+    </div>
+</div>
+<div class="chat-button"><span></span></div>
+<div class="modal">
+    <div class="modal-content">
+        <span class="modal-close-button">&times;</span>
+        <h1>Add What you want here.</h1>
+    </div>
+</div> -->
+
+
+<!-- // ****************************************************************************************** using template -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- {% load static %}
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Chatbot Interface</title>
+     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+ </head>
+ <body>
+     <div id="chat-container">
+         <div id="chat-header">
+             ChatGPT-Like Interface
+         </div>
+         <div id="chat-display">
+    
+         </div>
+         <form id="chat-form" method="POST">
+             {% csrf_token %}
+             <div id="chat-input-container">
+                 <input type="text" id="user-input" name="user_input" placeholder="Type your message..." required>
+                 <button type="submit" id="send-btn">Send</button>
+             </div>
+         </form>
+     </div>
+ 
+     <script src="{% static 'js/main.js' %}"></script>
+ </body>
+ </html> -->
+ 
