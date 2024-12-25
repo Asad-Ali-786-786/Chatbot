@@ -150,7 +150,7 @@ wiki_tool = WikipediaQueryRun(api_wrapper=wiki_wrapper)
 tools = [wiki_tool, arxiv_tool]
 
 # Groq API key (add a secure storage for deployment)
-GROQ_API_KEY = "api_key"
+GROQ_API_KEY = "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"
 llm = ChatGroq(groq_api_key=GROQ_API_KEY, model_name="Gemma2-9b-It").bind_tools(tools=tools)
 # print(f"Bound tools: {tools}")  # Debugging
 

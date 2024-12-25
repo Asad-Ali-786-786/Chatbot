@@ -34,20 +34,7 @@
 # import openai
 
 
-# # Set your OpenAI API key
-# openai.api_key = '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'
 
-# def get_bot_response(user_input):
-#     # Call the OpenAI API to generate a response
-#     response = openai.Completion.create(
-#         engine="text-davinci-003",  # Choose the engine you want (can be GPT-4, etc.)
-#         prompt=user_input,
-#         max_tokens=150,
-#         n=1,
-#         stop=None,
-#         temperature=0.7
-#     )
-    
 #     # Extract the response from the API and return it
 #     bot_response = response.choices[0].text.strip()
 #     return bot_response
