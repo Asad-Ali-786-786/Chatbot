@@ -162,6 +162,7 @@ from django.http import JsonResponse
 # In-memory chat history storage (replace with a database for production)
 CHAT_HISTORY = []
 
+
 def get_bot_response(user_input):
     """Get bot response based on user input."""
     # if user_input in ['Hello', 'Hi', 'Hey']:
