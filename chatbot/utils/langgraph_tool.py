@@ -162,15 +162,24 @@ class MessagesState(TypedDict):
 
 def call_model(state: MessagesState):
 
-
+    
     print("call_model function called")
 
 
     """Invoke the LLM with current state."""
     messages = state['messages']
-    print(f"Calling model with messages: {messages}")  # Debugging
+    # print(f"Calling model with messages: {messages}")  # Debugging
     response = llm.invoke(messages)
     print(f"Model response: {response}")  # Debugging
+
+    # Check if response content is empty or contains tool-related content
+    content = response.content
+    if not content or '<tool-call>' in content or '</tool-call>' in content:
+        user_message = "Hello."
+        print(user_message)  # Terminal logging
+        # Return the message to the chatbot interface
+        return {"messages": [{"role": "assistant", "content": user_message}]}
+
     return {"messages": [response]}
 
 def router_function(state: MessagesState) -> Literal["tools", END]:
@@ -232,6 +241,21 @@ def get_memory(config=None):
     config = config or {"configurable": {"thread_id": "1"}}
     return memory.get(config)
 
+
+
+def call_tool(tool_name: str, query: str):
+
+    print("call_tool function called")
+
+    """Invoke a tool and provide fallback if no information is found."""
+    try:
+        # Simulate tool usage (replace with actual tool integration if needed)
+        print(f"Calling tool: {tool_name} with query: {query}")
+        return f"I found some information using {tool_name}: [Simulated Result for {query}]"
+    except Exception as e:
+        print(f"Error invoking tool: {e}")
+        return "I'm sorry, I couldn't find information for your query. Can I assist with something else?"
+
 # def process_message(user_input, config=None):
 #     """Process user input and generate a chatbot response with fallback handling."""
 #     input_data = {"messages": [("user", user_input)]}
@@ -273,19 +297,6 @@ def get_memory(config=None):
 
 
 
-
-def call_tool(tool_name: str, query: str):
-
-    print("call_tool function called")
-
-    """Invoke a tool and provide fallback if no information is found."""
-    try:
-        # Simulate tool usage (replace with actual tool integration if needed)
-        print(f"Calling tool: {tool_name} with query: {query}")
-        return f"I found some information using {tool_name}: [Simulated Result for {query}]"
-    except Exception as e:
-        print(f"Error invoking tool: {e}")
-        return "I'm sorry, I couldn't find information for your query. Can I assist with something else?"
 
 # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
