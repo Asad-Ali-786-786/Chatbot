@@ -172,7 +172,7 @@ def call_model(state: MessagesState):
 
     # Check if response content is empty or contains tool-related content
     content = response.content
-    if not content or '<tool-call>' in content or '</tool-call>' in content:
+    if not content or '<tool-call>' in content or '</tool-call>' in content or '<tool_call>' in content or '</tool_call>' in content:
         user_message = "Hello."
         print(user_message)  # Terminal logging
         # Return the message to the chatbot interface
@@ -252,6 +252,7 @@ def call_tool(tool_name: str, query: str):
     except Exception as e:
         print(f"Error invoking tool: {e}")
         return "I'm sorry, I couldn't find information for your query. Can I assist with something else?"
+
 
 # def process_message(user_input, config=None):
 #     """Process user input and generate a chatbot response with fallback handling."""
