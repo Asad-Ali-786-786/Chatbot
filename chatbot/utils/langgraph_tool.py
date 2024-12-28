@@ -138,9 +138,7 @@ from langchain_community.tools import ArxivQueryRun, WikipediaQueryRun
 from langgraph.checkpoint.memory import MemorySaver
 from langchain_groq import ChatGroq
 from typing import Annotated, TypedDict, Literal
-
 from langchain_core.messages import HumanMessage
-
 
 # Initialize tools
 arxiv_wrapper = ArxivAPIWrapper(top_k_results=1, doc_content_chars_max=300)
@@ -230,6 +228,7 @@ def process_message(user_input, config=None):
         
     return response
 
+
 # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 def get_memory(config=None):
@@ -240,8 +239,6 @@ def get_memory(config=None):
 
     config = config or {"configurable": {"thread_id": "1"}}
     return memory.get(config)
-
-
 
 def call_tool(tool_name: str, query: str):
 

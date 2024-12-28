@@ -160,25 +160,69 @@ from chatbot.utils.langgraph_tool import process_message, call_model, router_fun
 from django.http import JsonResponse
 
 # In-memory chat history storage (replace with a database for production)
-CHAT_HISTORY = []
+# CHAT_HISTORY = []
 
+
+# def get_bot_response(user_input):
+#     """Get bot response based on user input."""
+#     # if user_input in ['Hello', 'Hi', 'Hey']:
+#     #     return user_input
+#     if user_input in ['Hello', 'Hi', 'Hey']:
+#         return process_message(user_input)
+#     return process_message(user_input)
+
+# def home(request):
+#     """Render the home page."""
+#     global CHAT_HISTORY
+#     return render(request, 'home.html')
+
+# def chat(request):
+#     """Handle chat interactions."""
+#     global CHAT_HISTORY
+#     response = None
+#     user_input = None
+#     memory = None
+
+#     if request.method == 'POST':
+#         user_input = request.POST.get('user_input', '').strip()
+        
+#         if user_input:
+#              # Append user message to chat history
+#             CHAT_HISTORY.append({'type': 'user', 'content': user_input})
+
+#             response = get_bot_response(user_input)
+#             memory = get_memory()
+
+#             # Append bot message to chat history
+#             CHAT_HISTORY.append({'type': 'bot', 'content': response})
+#         else:
+#             response = "Please provide some input to start the chat."
+            
+#         return render(request, 'home.html', {'response': response, 'user_input': user_input, 'memory': memory, 'chat_history': CHAT_HISTORY})
+
+#     return render(request, 'home.html')
+
+import os
+from django.shortcuts import render
+from chatbot.utils.langgraph_tool import process_message, call_model, router_function, get_memory, call_tool
+from django.http import JsonResponse
 
 def get_bot_response(user_input):
     """Get bot response based on user input."""
-    # if user_input in ['Hello', 'Hi', 'Hey']:
-    #     return user_input
     if user_input in ['Hello', 'Hi', 'Hey']:
         return process_message(user_input)
     return process_message(user_input)
 
 def home(request):
     """Render the home page."""
-    global CHAT_HISTORY
     return render(request, 'home.html')
 
 def chat(request):
     """Handle chat interactions."""
-    global CHAT_HISTORY
+    # Use session to store the chat history
+    if 'CHAT_HISTORY' not in request.session:
+        request.session['CHAT_HISTORY'] = []
+
     response = None
     user_input = None
     memory = None
@@ -187,21 +231,21 @@ def chat(request):
         user_input = request.POST.get('user_input', '').strip()
         
         if user_input:
-             # Append user message to chat history
-            CHAT_HISTORY.append({'type': 'user', 'content': user_input})
+            # Append user message to session-based chat history
+            request.session['CHAT_HISTORY'].append({'type': 'user', 'content': user_input})
 
             response = get_bot_response(user_input)
             memory = get_memory()
 
-            # Append bot message to chat history
-            CHAT_HISTORY.append({'type': 'bot', 'content': response})
+            # Append bot message to session-based chat history
+            request.session['CHAT_HISTORY'].append({'type': 'bot', 'content': response})
+
+            # Save session data
+            request.session.modified = True
         else:
             response = "Please provide some input to start the chat."
             
-        return render(request, 'home.html', {'response': response, 'user_input': user_input, 'memory': memory, 'chat_history': CHAT_HISTORY})
-
-    return render(request, 'home.html')
-
+    return render(request, 'home.html', {'response': response, 'chat_history': request.session['CHAT_HISTORY']})
 
 # With html working ------------------->
 

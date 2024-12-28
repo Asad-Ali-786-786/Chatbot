@@ -22,6 +22,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent  #-----> Without static option
 CSRF_TRUSTED_ORIGINS= ["https://web-production-4bebf.up.railway.app"]
 
 
+# Session settings
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'  # Using database-backed sessions
+
+
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -38,8 +43,8 @@ SECRET_KEY = 'django-insecure-14-gmxg$!9tne$7e#6c)bq3!wes8!*jr6gv6e6j!(fyi$if^9)
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG = False
+DEBUG = True
+# DEBUG = False
 
 
 
@@ -60,6 +65,10 @@ INSTALLED_APPS = [
     'chatbot',
 ]
 
+# Session timeout settings
+SESSION_COOKIE_AGE = 300  # 30 minutes
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True  # Expire session when browser is closed
+SESSION_SAVE_EVERY_REQUEST = True  # Refresh session timeout on each request
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
