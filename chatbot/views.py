@@ -207,6 +207,7 @@ from django.shortcuts import render
 from chatbot.utils.langgraph_tool import process_message, call_model, router_function, get_memory, call_tool
 from django.http import JsonResponse
 
+
 def get_bot_response(user_input):
     """Get bot response based on user input."""
     if user_input in ['Hello', 'Hi', 'Hey']:

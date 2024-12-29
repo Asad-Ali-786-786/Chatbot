@@ -43,8 +43,8 @@ SECRET_KEY = 'django-insecure-14-gmxg$!9tne$7e#6c)bq3!wes8!*jr6gv6e6j!(fyi$if^9)
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-# DEBUG = False
+# DEBUG = True
+DEBUG = False
 
 
 
@@ -67,7 +67,7 @@ INSTALLED_APPS = [
 
 # Session timeout settings
 SESSION_COOKIE_AGE = 300  # 30 minutes
-SESSION_EXPIRE_AT_BROWSER_CLOSE = True  # Expire session when browser is closed
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False  # Expire session when browser is closed
 SESSION_SAVE_EVERY_REQUEST = True  # Refresh session timeout on each request
 
 MIDDLEWARE = [
