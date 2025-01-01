@@ -140,6 +140,10 @@ from langchain_groq import ChatGroq
 from typing import Annotated, TypedDict, Literal
 from langchain_core.messages import HumanMessage
 
+import os
+from dotenv import load_dotenv
+
+
 # Initialize tools
 arxiv_wrapper = ArxivAPIWrapper(top_k_results=1, doc_content_chars_max=300)
 wiki_wrapper = WikipediaAPIWrapper(top_k_results=1, doc_content_chars_max=300)
@@ -148,7 +152,19 @@ wiki_tool = WikipediaQueryRun(api_wrapper=wiki_wrapper)
 tools = [wiki_tool, arxiv_tool]
 
 # Groq API key (add a secure storage for deployment)
-GROQ_API_KEY = "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"
+# GROQ_API_KEY = "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"
+
+# Load environment variables from the .env file
+load_dotenv()
+
+# Access the GROQ_API_KEY variable
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+
+# Raise an error if the key is missing
+if not GROQ_API_KEY:
+    raise ValueError("GROQ_API_KEY is not set in the .env file!")
+
+
 llm = ChatGroq(groq_api_key=GROQ_API_KEY, model_name="Gemma2-9b-It").bind_tools(tools=tools)
 # print(f"Bound tools: {tools}")  # Debugging
 
@@ -210,25 +226,43 @@ app = workflow.compile(checkpointer=memory)
 
 # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-def process_message(user_input, config=None):
-    """Process user input and generate a chatbot response with memory."""
-    input_data = {"messages": [("user", user_input)]}
-    config = config or {"configurable": {"thread_id": "1"}}
-    events = app.stream(input_data, config, stream_mode="values")
+# def process_message(user_input, config=None):
+#     """Process user input and generate a chatbot response with memory."""
+#     input_data = {"messages": [("user", user_input)]}
+#     config = config or {"configurable": {"thread_id": "1"}}
+#     events = app.stream(input_data, config, stream_mode="values")
 
-    print("Process msg called")
+#     print("Process msg called")
 
-    response = None
-    for event in events:
-        # print(f"Event: {event}")  # Debugging
-        response = event["messages"][-1].content
+#     response = None
+#     for event in events:
+#         # print(f"Event: {event}")  # Debugging
+#         response = event["messages"][-1].content
 
-    if not response:
-        response = "I'm sorry, I couldn't process your request."
+#     if not response:
+#         response = "I'm sorry, I couldn't process your request."
         
-    return response
+#     return response
 
 
+
+def process_message(user_input, config=None):
+    try:
+        input_data = {"messages": [("user", user_input)]}
+        config = config or {"configurable": {"thread_id": "1"}}
+        events = app.stream(input_data, config, stream_mode="values")
+        response = None
+        for event in events:
+            response = event["messages"][-1].content
+        if not response:
+            response = "I'm sorry, I couldn't process your request."
+        return response
+    except Exception as e:
+        print(f"Error in process_message: {e}")
+        return "An error occurred while processing your request."
+
+
+        
 # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 def get_memory(config=None):

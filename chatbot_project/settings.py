@@ -65,6 +65,10 @@ INSTALLED_APPS = [
     'chatbot',
 ]
 
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
+SESSION_COOKIE_SECURE = True
+
 # Session timeout settings
 SESSION_COOKIE_AGE = 300  # 30 minutes
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False  # Expire session when browser is closed
