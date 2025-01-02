@@ -21,12 +21,6 @@ import os
 # environ.Env.read_env()
 # GROQ_API_KEY = env('GROQ_API_KEY')
 
-
-CSRF_TRUSTED_ORIGINS = [
-    "https://web-groqapikey.up.railway.app",
-    # Add any other trusted domains here
-]
-
 # *******************************************************
 
 
@@ -70,14 +64,10 @@ DEBUG = False
 
 # ALLOWED_HOSTS = []
 
-# ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*']
 
-ALLOWED_HOSTS = [
-    "web-groqapikey.up.railway.app",
-    "127.0.0.1",
-    "localhost",
-    # Add any other hostnames you expect to serve
-]
+# ALLOWED_HOSTS = ['web-groqapikey.up.railway.app', '*']
+
 
 # Application definition
 
