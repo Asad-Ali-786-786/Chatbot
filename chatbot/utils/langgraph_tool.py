@@ -152,17 +152,29 @@ wiki_tool = WikipediaQueryRun(api_wrapper=wiki_wrapper)
 tools = [wiki_tool, arxiv_tool]
 
 # Groq API key (add a secure storage for deployment)
-# GROQ_API_KEY = "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"
+GROQ_API_KEY = "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"
 
 # Load environment variables from the .env file
 load_dotenv()
 
-# Access the GROQ_API_KEY variable
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+# # Access the GROQ_API_KEY variable
+# GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
-# Raise an error if the key is missing
-if not GROQ_API_KEY:
-    raise ValueError("GROQ_API_KEY is not set in the .env file!")
+# # Raise an error if the key is missing
+# if not GROQ_API_KEY:
+#     raise ValueError("GROQ_API_KEY is not set in the .env file!")
+
+
+# import os
+
+# try:
+#     GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+#     if not GROQ_API_KEY:
+#         raise ValueError("GROQ_API_KEY is not set in the .env file!")
+# except ValueError as e:
+#     print(f"Environment variable error: {e}")
+#     # Handle it gracefully, maybe log and provide a fallback
+
 
 
 llm = ChatGroq(groq_api_key=GROQ_API_KEY, model_name="Gemma2-9b-It").bind_tools(tools=tools)

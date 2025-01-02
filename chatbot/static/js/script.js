@@ -359,3 +359,9 @@ chatBox.scrollTop = chatBox.scrollHeight;
 
 
 // ****************************************************************************************** using template
+
+
+
+
+const chatBox = document.getElementById("chat-messages");
+chatBox.scrollTop = chatBox.scrollHeight;

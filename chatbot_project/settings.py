@@ -12,7 +12,20 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
-# from dotenv import load_dotenv
+# from dotenv i# No selection was provided, so I will generate a code snippet that can be inserted at the cursor position.
+
+# *******************************************************
+
+# import environ
+# env = environ.Env()
+# environ.Env.read_env()
+# GROQ_API_KEY = env('GROQ_API_KEY')
+# *******************************************************
+
+
+
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
@@ -51,6 +64,8 @@ DEBUG = False
 # ALLOWED_HOSTS = []
 
 ALLOWED_HOSTS = ['*']
+
+ALLOWED_HOSTS = ['web-groqapikey.up.railway.app', '*']
 
 
 # Application definition
