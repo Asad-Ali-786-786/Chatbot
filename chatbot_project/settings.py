@@ -20,6 +20,13 @@ import os
 # env = environ.Env()
 # environ.Env.read_env()
 # GROQ_API_KEY = env('GROQ_API_KEY')
+
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://web-groqapikey.up.railway.app",
+    # Add any other trusted domains here
+]
+
 # *******************************************************
 
 
@@ -56,17 +63,21 @@ SECRET_KEY = 'django-insecure-14-gmxg$!9tne$7e#6c)bq3!wes8!*jr6gv6e6j!(fyi$if^9)
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-# DEBUG = False
+# DEBUG = True
+DEBUG = False
 
 
 
 # ALLOWED_HOSTS = []
 
-ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['*']
 
-ALLOWED_HOSTS = ['web-groqapikey.up.railway.app', '*']
-
+ALLOWED_HOSTS = [
+    "web-groqapikey.up.railway.app",
+    "127.0.0.1",
+    "localhost",
+    # Add any other hostnames you expect to serve
+]
 
 # Application definition
 

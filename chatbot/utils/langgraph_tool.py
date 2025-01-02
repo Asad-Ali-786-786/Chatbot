@@ -260,6 +260,7 @@ app = workflow.compile(checkpointer=memory)
 
 def process_message(user_input, config=None):
     try:
+        print("Process msg called")
         input_data = {"messages": [("user", user_input)]}
         config = config or {"configurable": {"thread_id": "1"}}
         events = app.stream(input_data, config, stream_mode="values")
